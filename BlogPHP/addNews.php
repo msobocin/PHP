@@ -4,13 +4,39 @@
  * @author Michal Sobocinski
  */
 require_once 'Controler/NewsControler.php';
+require_once 'Model/News.php';
 require_once 'View/HTMLView.php';
 
 HTMLView::header ();
 HTMLView::tinyMCE ();
+$exito = array (
+		"succes" => false,
+		"id" => 0
+);
+
+if (isset($_REQUEST['enviar'])) {
+	$title = $_REQUEST['title'];
+	$content = $_REQUEST['content'];
+	$date = (new \DateTime())->format('Y-m-d H:i:s');
+// 	$imagen = fopen($_FILES['imagen']['tmp_name'], 'rb');
+	if (!empty($_FILES['imagen']['tmp_name'])) {
+		$imagen = fopen($_FILES['imagen']['tmp_name'], 'rb');
+	}else {
+		$imagen = fopen("img/news2.gif", "rb");
+	}
+	
+	$news = new News();
+	$news->setAll(0,1,$title,$content,$date,$imagen);
+	
+	NewsControler::connectBD();
+	$exito = NewsControler::save($news);
+	NewsControler::disconnectBD();
+	
+	
+}
 ?>
 
-<form enctype="multipart/form-data" role="form" action="addNews.php">
+<form enctype="multipart/form-data" role="form" method="post" action="addNews.php">
 	<div class="form-group">
 		<div class="row">
 			<div class="fileinput fileinput-new col-sm-5 col-sm-offset-1"
@@ -24,8 +50,8 @@ HTMLView::tinyMCE ();
 					style="max-width: 100%; max-height: 150px;"></div>
 				<div>
 					<span class="btn btn-default btn-file"><span class="fileinput-new">Select
-							image</span><span class="fileinput-exists">Change</span><input
-						type="file" name="foto" /></span> <a href="#"
+							image</span><span class="fileinput-exists">Change</span>
+							<input type="file" id="imagen" name="imagen" /></span> <a href="#"
 						class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 				</div>
 			</div>

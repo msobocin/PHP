@@ -3,6 +3,7 @@
 class News {
 	private $_id;
 	private $_idAuthor;
+	private $_Author
 	private $_title;
 	private $_content;
 	private $_date;
