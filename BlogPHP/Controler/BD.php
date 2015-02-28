@@ -8,7 +8,7 @@ class BD {
 	
 	public static function connectBD() {
 		try{
-			self::$_link = new PDO("mysql:host=localhost;dbname=recetasmgc", "root", "secret");
+			self::$_link = new PDO("mysql:host=localhost;dbname=BlogPHPMichal", "root", "secret");
 		
 			self::$_link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
