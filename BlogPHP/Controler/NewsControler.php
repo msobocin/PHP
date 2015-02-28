@@ -32,7 +32,7 @@ class NewsControler extends BD {
 	public static function consult() {
 		$arrNews = array ();
 		try {
-			$result = parent::$_link->query ( "SELECT News.`id` as _id, `title` as _title, `content` as _content, `date` as _date, `image` as _imagen, `id_Author` as _id_Author, Authors.name as _Author FROM `News` Inner join Authors on id_Author = Authors.id" );
+			$result = parent::$_link->query ( "SELECT News.`id` as _id, `title` as _title, `content` as _content, `date` as _date, `image` as _imagen, `id_Author` as _id_Author, Authors.name as _author FROM `News` Inner join Authors on id_Author = Authors.id" );
 			$result->setFetchMode ( PDO::FETCH_CLASS, 'News' );
 
 			while ( $news = $result->fetch () ) {
@@ -43,6 +43,23 @@ class NewsControler extends BD {
 			throw $e;
 		}
 		return $arrNews;
+	}
+	
+	public static function consultById($id) {
+		$news = array ();
+		try {
+			$result = parent::$_link->query ( "SELECT News.`id` as _id, `title` as _title, `content` as _content, `date` as _date, `image` as _imagen, `id_Author` as _id_Author, Authors.name as _author FROM `News` Inner join Authors on id_Author = Authors.id WHERE News.id=".$id );
+			$result->setFetchMode ( PDO::FETCH_CLASS, 'News' );
+			$news = $result->fetch ();
+			$news->__set("_imagen", '<img src="data:image/jpeg;base64,'.base64_encode($news->__get("_imagen")).'" class="img-responsive" alt="'.$news->__get("_title").'"/>');
+// 			while ( $news = $result->fetch () ) {
+// 				$news->__set("_imagen", '<img src="data:image/jpeg;base64,'.base64_encode($news->__get("_imagen")).'" class="img-responsive" alt="'.$news->__get("_title").'"/>');
+// 				array_push ( $arrNews, $news);
+// 			}
+		} catch ( Exception $e ) {
+			throw $e;
+		}
+		return $news;
 	}
 }
 
