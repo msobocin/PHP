@@ -18,7 +18,9 @@ class HTMLView {
 		
 		    <!-- Bootstrap -->
 		    <link href="css/bootstrap.min.css" rel="stylesheet">
-		
+		    <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
+			<link href="css/main.css" rel="stylesheet" />
+			
 		    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		    <!--[if lt IE 9]>
@@ -37,32 +39,56 @@ class HTMLView {
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			      </button>
-			      <a class="navbar-brand" href="index.php">Blog CMS by Michal Sobocinski</a>
+			      <a class="navbar-brand" href="index.php"><img alt="Brand" class="bookmarks" src="img/bookmark.png" width="70" style="margin-top: -26px;"></a>
 			    </div>
 			
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
 			        <li><a href="index.php">Blog <span class="sr-only">(current)</span></a></li>
-			        <li><a href="#">Añadir <noticia></noticia></a></li>
+			        <li><a href="addNews.php">Añadir Noticia</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
 			</nav>
 		  
-		  <div class="content">
+		  <div class="container" style="margin-top: 80px;">
 <?php
 	}
 	
 	public static function footer() {
 		?>
 			</div>
+			<footer class="container-fluid">
+				<div class="col-sm-4 col-sm-offset-4 footer">
+					<h1 align="center" style="margin-bottom: 0px; padding-bottom: 15px;">BLOG CMS by Michal Sobocinski</h1>
+				</div>
+			</footer>
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		    <!-- Include all compiled plugins (below), or include individual files as needed -->
 		    <script src="js/bootstrap.min.js"></script>
+		    <script src="js/jasny-bootstrap.min.js"></script>
 		  </body>
 		</html>
+		<?php
+	}
+	
+	public static function tinyMCE() {
+		?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript">
+		tinymce.init({
+		    selector: "textarea",
+		    plugins: [
+		        "advlist autolink lists link image charmap print preview anchor",
+		        "searchreplace visualblocks code fullscreen",
+		        "insertdatetime media table contextmenu paste"
+		    ],
+		    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+		});
+		</script>
 		<?php
 	}
 	

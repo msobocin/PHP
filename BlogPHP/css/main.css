@@ -1,0 +1,27 @@
+body {
+	background: url(../img/bg.png) repeat;
+}
+
+footer {
+   position:absolute;
+   bottom:15px;
+   width:100%;
+   height:60px;   /* Height of the footer */
+}
+
+.footer{
+	background: rgba(149, 149, 137, 0.15);
+	border: 1px solid #d2d2c4;
+}
+
+.navbar-default{
+	background-color: #fafaf6;
+	margin-top: 10px;
+	-webkit-box-shadow: 0px 1px 2px #cccccc;
+	-moz-box-shadow: 0px 1px 2px #cccccc;
+	box-shadow: 0px 1px 2px #cccccc;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+}
