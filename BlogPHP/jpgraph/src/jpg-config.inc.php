@@ -61,7 +61,7 @@ define('CSIMCACHE_HTTP_DIR','csimcache/');
 
 // Deafult locale for error messages.
 // This defaults to English = 'en'
-define('DEFAULT_ERR_LOCALE','en');
+define('DEFAULT_ERR_LOCALE','es');
 
 // Deafult graphic format set to 'auto' which will automatically
 // choose the best available format in the order png,gif,jpeg
