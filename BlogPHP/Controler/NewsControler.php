@@ -9,7 +9,8 @@ class NewsControler extends BD {
 				"id" => 0 
 		);
 		try {
-			$sentencia = parent::$_link->prepare ( "INSERT INTO `BlogPHPMichal`.`News` (`content`,`date`,`image`,`id_Author`) VALUES (:_content, :_date, :_image,:_idAuthor)" );
+			$sentencia = parent::$_link->prepare ( "INSERT INTO `BlogPHPMichal`.`News` (`title`,`content`,`date`,`image`,`id_Author`) VALUES (:_title, :_content, :_date, :_image,:_idAuthor)" );
+			$sentencia->bindParam ( ":_title", $news->__get("_title") );
 			$sentencia->bindParam ( ":_content", $news->__get("_content") );
 			$sentencia->bindParam ( ":_date", $news->__get("_date") );
 			$sentencia->bindParam ( ":_idAuthor", $news->__get("_idAuthor") );

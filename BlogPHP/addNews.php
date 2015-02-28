@@ -13,7 +13,7 @@ HTMLView::tinyMCE ();
 <form enctype="multipart/form-data" role="form" action="addNews.php">
 	<div class="form-group">
 		<div class="row">
-			<div class="fileinput fileinput-new col-sm-5 col-sm-offset-2"
+			<div class="fileinput fileinput-new col-sm-5 col-sm-offset-1"
 				data-provides="fileinput">
 				<div class="fileinput-new thumbnail img-responsive img-circle"
 					style="width: 100%; height: 150px;">
@@ -38,12 +38,12 @@ HTMLView::tinyMCE ();
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
+		<div class="col-sm-offset-1 col-sm-10">
 			<textarea class="form-control" rows="20" name="content"></textarea>
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-offset-6 col-sm-10">
+		<div class="col-sm-offset-5 col-sm-10">
 			<button type="submit" name="enviar" class="btn btn-default">Añadir</button>
 		</div>
 	</div>
