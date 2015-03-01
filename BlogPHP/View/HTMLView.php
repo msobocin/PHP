@@ -51,11 +51,15 @@ class HTMLView {
 			     	?>			        
 			        <li><a href="addNews.php">Añadir Noticia</a></li>
 			        <?php } ?>
+			        <?php if (isset($_SESSION['author']) && $_SESSION['author']['admin']) {
+			     	?>			        
+			        <li><a href="addAuthor.php">Añadir Author</a></li>
+			        <?php } ?>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
 			      <?php if (isset($_SESSION['author']) && $_SESSION['author']['logged']) {
 			     	?>			        
-			        <li><a href="logout.php">Logout</a></li>
+			        <li><a href="logout.php">Logout <?php echo $_SESSION['author']['name']; ?></a></li>
 			      <?php }else {
 			      ?>
 		            <li><a href="login.php">Login in</a></li>
