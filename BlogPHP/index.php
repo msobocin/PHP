@@ -27,7 +27,7 @@ if (isset($_REQUEST['news'])) {
 }
 
 ?>
-
+<img src=grafico.php />
 <?php 
 HTMLView::footer();
 ?>

@@ -15,9 +15,7 @@ class NewsView {
                 <h3><?php echo $news->__get("_title"); ?></h3>
                 <?php 
                 $text = $news->truncateHtml($news->__get("_content"),750);
-//                 if(strlen($text)>1500){
-//                 		$text = substr($text, 0, strpos($text, ' ', 1500));
-//                 }
+
                 ?>
                 <?php echo $text; ?>
                 
@@ -58,11 +56,14 @@ class NewsView {
 		<br/>
 		<div class="row">
 			<div class="col-sm-6">
-				<?= $news->__get("_date")?>
+				<?= $news->__get("_date")?> <?= $news->__get("_author")?>
 			</div>
 			
 			<div class="col-sm-6 text-right">
-				<?= $news->__get("_author")?>
+<!-- 				<form action="ex.php"> -->
+<!-- 					<button type="submit" name="news" value="" class="btn btn-default" target="_blank">Descargar en formato PDF</button> -->
+<!-- 				</form> -->
+				<a class="btn btn-default" href="newsPDF.php?news=<?= $news->__get("_id") ?>" role="button"  target="_blank">Descargar en formato PDF</a>
 			</div>
 		
 		</div>
