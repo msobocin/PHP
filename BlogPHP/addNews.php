@@ -6,6 +6,7 @@
 require_once 'Controler/NewsControler.php';
 require_once 'Model/News.php';
 require_once 'View/HTMLView.php';
+session_start();
 
 HTMLView::header ();
 HTMLView::tinyMCE ();
@@ -26,7 +27,7 @@ if (isset($_REQUEST['enviar'])) {
 	}
 	
 	$news = new News();
-	$news->setAll(0,1,$title,$content,$date,$imagen);
+	$news->setAll(0,$_SESSION['author']['id'],$title,$content,$date,$imagen);
 	
 	NewsControler::connectBD();
 	$exito = NewsControler::save($news);

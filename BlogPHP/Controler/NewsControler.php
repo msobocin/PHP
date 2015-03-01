@@ -13,7 +13,7 @@ class NewsControler extends BD {
 			$sentencia->bindParam ( ":_title", $news->__get("_title") );
 			$sentencia->bindParam ( ":_content", $news->__get("_content") );
 			$sentencia->bindParam ( ":_date", $news->__get("_date") );
-			$sentencia->bindParam ( ":_idAuthor", $news->__get("_idAuthor") );
+			$sentencia->bindParam ( ":_idAuthor", intval($news->__get("_idAuthor")) );
 			$sentencia->bindParam ( ":_imagen", $news->__get("_imagen"), PDO::PARAM_LOB );
 			
 			if ($sentencia->execute ()) {
