@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * 
  * @author Michal Sobocinski
@@ -46,8 +47,20 @@ class HTMLView {
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
 			        <li><a href="index.php">Blog <span class="sr-only">(current)</span></a></li>
+			        <?php if (isset($_SESSION['author']) && $_SESSION['author']['logged']) {
+			     	?>			        
 			        <li><a href="addNews.php">Añadir Noticia</a></li>
+			        <?php } ?>
 			      </ul>
+			      <ul class="nav navbar-nav navbar-right">
+			      <?php if (isset($_SESSION['author']) && $_SESSION['author']['logged']) {
+			     	?>			        
+			        <li><a href="logout.php">Logout</a></li>
+			      <?php }else {
+			      ?>
+		            <li><a href="login.php">Login in</a></li>
+		          <?php } ?>
+		          </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
 			</nav>
