@@ -14,12 +14,12 @@ class NewsView {
 
                 <h3><?php echo $news->__get("_title"); ?></h3>
                 <?php 
-                $text = strip_tags($news->__get("_content"));
-                if(strlen($text)>1500){
-                		$text = substr($text, 0, strpos($text, ' ', 1500));
-                }
+                $text = $news->truncateHtml($news->__get("_content"),750);
+//                 if(strlen($text)>1500){
+//                 		$text = substr($text, 0, strpos($text, ' ', 1500));
+//                 }
                 ?>
-                <?php echo $text."..."; ?>
+                <?php echo $text; ?>
                 
                 <div class="row">
                 		<br/>
