@@ -8,6 +8,11 @@ require_once 'Model/News.php';
 require_once 'View/HTMLView.php';
 session_start();
 
+if (!isset($_SESSION['author'])) {
+	header('Location: index.php');
+	exit();
+}
+
 HTMLView::header ();
 
 if (isset($_REQUEST['enviar'])) {
