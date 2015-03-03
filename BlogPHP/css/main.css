@@ -26,17 +26,15 @@ footer {
 }
 
 .post-content {
-    bottom:1px;
-    width: 100%;
+    bottom:-10px;
+    width: 99.8%;
     left:0;
     position: absolute;
     background: rgba(0, 0, 0, 0.4);
     border-top: 1px black solid;
 }
 
-.post-content img {
-	display: none;
-}
+
 
 .thumbnail{
 	height: 500px;
@@ -106,4 +104,14 @@ footer {
   color: #dc692e;
   background: #d0d0c6;
   background: rgba(208, 208, 198, 0.5);
+}
+
+.centered{
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.thumbnail .caption img {
+display: none;
 }

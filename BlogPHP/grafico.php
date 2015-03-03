@@ -21,7 +21,7 @@ foreach ($arrGraficos as $grafico) {
 
 // $datay=array(62,105,85,50);//VALORES
 // Create the graph. These two calls are always required
-$graph = new Graph(350,220,'auto');
+$graph = new Graph(650,520,'auto');
 $graph->SetScale("textlin");
 
 //$theme_class="DefaultTheme";

@@ -8,7 +8,7 @@ require_once 'Model/News.php';
 require_once 'View/HTMLView.php';
 session_start();
 
-if (!isset($_SESSION['author'])) {
+if (!isset($_SESSION['author'])||!$_SESSION['author']['admin']) {
 	header('Location: index.php');
 	exit();
 }

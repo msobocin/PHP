@@ -9,8 +9,7 @@ require_once 'View/HTMLView.php';
 
 HTMLView::header();
 ?>
-
-<img src=grafico.php />
+<img src=grafico.php alt="estatistica"  class="centered"/>
 <?php 
 HTMLView::footer();
 ?>
